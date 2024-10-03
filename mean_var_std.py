@@ -1,42 +1,47 @@
 import numpy as np
 
 def calculate(list):
-    if (len(list) != 9): 
+
+#Create list
+    ls= np.array(list)
+#Only allow input of 9 elements
+    if len(list) != 9: 
         raise ValueError("List must contain nine numbers.")   
 
-    ls= np.array(list)
-
+#Convert list to 3x3 np array
+    np_arr = ls.reshape(3,3): 
+      
 #Calculate mean
-    mean1 = [ls[[0, 1, 2]].mean(), ls[[3, 4, 5]].mean(), ls[[6, 7, 8]].mean()]
-    mean2 = [ls[[0, 3, 6]].mean(), ls[[1, 4, 7]].mean(), ls[[2, 5, 8]].mean()] 
+    mean1 = [np_arr[[0, 1, 2]].mean(), np_arr[[3, 4, 5]].mean(), np_arr[[6, 7, 8]].mean()]
+    mean2 = [np_arr[[0, 3, 6]].mean(), np_arr[[1, 4, 7]].mean(), np_arr[[2, 5, 8]].mean()] 
 
 #Calculate variance
-    var1 = [ls[[0, 1, 2]].var(), ls[[3, 4, 5]].var(), ls[[6, 7, 8]].var()]
-    var2 = [ls[[0, 3, 6]].var(), ls[[1, 4, 7]].var(), ls[[2, 5, 8]].var()]
+    var1 = [np_arr[[0, 1, 2]].var(), np_arr[[3, 4, 5]].var(), np_arr[[6, 7, 8]].var()]
+    var2 = [np_arr[[0, 3, 6]].var(), np_arr[[1, 4, 7]].var(), np_arr[[2, 5, 8]].var()]
 
 #Calculate standard-deviation
-    stand_dev1 = [ls[[0, 1, 2]].std(), ls[[3, 4, 5]].std(), ls[[6, 7, 8]].std()]
-    stand_dev2 = [ls[[0, 3, 6]].std(), ls[[1, 4, 7]].std(), ls[[2, 5, 8]].std()]
+    stand_dev1 = [np_arr[[0, 1, 2]].std(), np_arr[[3, 4, 5]].std(), np_arr[[6, 7, 8]].std()]
+    stand_dev2 = [np_arr[[0, 3, 6]].std(), np_arr[[1, 4, 7]].std(), np_arr[[2, 5, 8]].std()]
 
 #Calculate maximum
-    max1 = [ls[[0, 1, 2]].max(), ls[[3, 4, 5]].max(), ls[[6, 7, 8]].max()]
-    max2 = [ls[[0, 3, 6]].max(), ls[[1, 4, 7]].max(), ls[[2, 5, 8]].max()]
+    max1 = [np_arr[[0, 1, 2]].max(), np_arr[[3, 4, 5]].max(), np_arr[[6, 7, 8]].max()]
+    max2 = [np_arr[[0, 3, 6]].max(), np_arr[[1, 4, 7]].max(), np_arr[[2, 5, 8]].max()]
 
 #Calculate minimum
-    min1 = [ls[[0, 1, 2]].min(), ls[[3, 4, 5]].min(), ls[[6, 7, 8]].min()]
-    min2 = [ls[[0, 3, 6]].min(), ls[[1, 4, 7]].min(), ls[[2, 5, 8]].min()]
+    min1 = [np_arr[[0, 1, 2]].min(), np_arr[[3, 4, 5]].min(), np_arr[[6, 7, 8]].min()]
+    min2 = [np_arr[[0, 3, 6]].min(), np_arr[[1, 4, 7]].min(), np_arr[[2, 5, 8]].min()]
 
 #Calcualte total
-    sum1 = [ls[[0, 1, 2]].sum(), ls[[3, 4, 5]].sum(), ls[[6, 7, 8]].sum()]
-    sum2 = [ls[[0, 3, 6]].sum(), ls[[1, 4, 7]].sum(), ls[[2, 5, 8]].sum()]
+    sum1 = [np_arr[[0, 1, 2]].sum(), np_arr[[3, 4, 5]].sum(), np_arr[[6, 7, 8]].sum()]
+    sum2 = [np_arr[[0, 3, 6]].sum(), np_arr[[1, 4, 7]].sum(), np_arr[[2, 5, 8]].sum()]
 
 
-    calculations = {'mean': [mean1, mean2, ls.mean()],
-                    'variance': [var1, var2, ls.var()],
-                    'standard deviation': [stand_dev1, stand_dev2, ls.std()],
-                    'max': [max1, max2, ls.max()],
-                    'min': [min1, min2, ls.min()],
-                    'sum': [sum1, sum2, ls.sum()]
+    calculations = {'mean': [mean1.tolist(), mean2.tolist(), (np_arr.mean()).tolist()],
+                    'variance': [var1.tolist(), var2.tolist(), (np_arr.var()).tolist()],
+                    'standard deviation': [stand_dev1.tolist(), stand_dev2.tolist(), (np_arr.std()).tolist()],
+                    'max': [max1.tolist(), max2.tolist(), (np_arr.max()).tolist()],
+                    'min': [min1.tolist(), min2.tolist(), (np_arr.min()).tolist()],
+                    'sum': [sum1.tolist(), sum2.tolist(), (np_arr.sum()).tolist()]
                    }
 
     return calculations
