@@ -29,15 +29,12 @@ def calculate(list):
     sum1 = [ls[[0, 1, 2]].sum(), ls[[3, 4, 5]].sum(), ls[[6, 7, 8]].sum()]
     sum2 = [ls[[0, 3, 6]].sum(), ls[[1, 4, 7]].sum(), ls[[2, 5, 8]].sum()]
 
+    calculations = {'mean': [mean1, mean2, ls.mean()],
+                    'variance': [var1, var2, ls.var()],
+                    'standard deviation': [stand_dev1, stand_dev2, ls.std()],
+                    'max': [max1, max2, ls.max()],
+                    'min': [min1, min2, ls.min()],
+                    'sum': [sum1, sum2, ls.sum()]
+                   }
 
-
-    return {
-
-        'mean': [mean1, mean2, ls.mean()],
-        'variance': [var1, var2, ls.var()],
-        'standard deviation': [stand_dev1, stand_dev2, ls.std()],
-        'max': [max1, max2, ls.max()],
-        'min': [min1, min2, ls.min()],
-        'sum': [sum1, sum2, ls.sum()]
-
-    }
+    return calculations
