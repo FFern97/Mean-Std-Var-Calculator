@@ -12,38 +12,42 @@ def calculate(list):
     np_arr = ls.reshape(3,3): 
       
 #Calculate mean
-    mean1 = [np_arr[[0, 1, 2]].mean(), np_arr[[3, 4, 5]].mean(), np_arr[[6, 7, 8]].mean()]
-    mean2 = [np_arr[[0, 3, 6]].mean(), np_arr[[1, 4, 7]].mean(), np_arr[[2, 5, 8]].mean()] 
-
+    mean1 = np_arr.mean(axis=0).tolist()
+    mean2 = np_arr.mean(axis=1).tolist() 
+    flat_mean = np_arr.mean()
+    
 #Calculate variance
-    var1 = [np_arr[[0, 1, 2]].var(), np_arr[[3, 4, 5]].var(), np_arr[[6, 7, 8]].var()]
-    var2 = [np_arr[[0, 3, 6]].var(), np_arr[[1, 4, 7]].var(), np_arr[[2, 5, 8]].var()]
-
+    var1 = np_arr.var(axis=0).tolist()
+    var2 = np_arr.var(axis=1).tolist() 
+    flat_var = np_arr.var()
+    
 #Calculate standard-deviation
-    stand_dev1 = [np_arr[[0, 1, 2]].std(), np_arr[[3, 4, 5]].std(), np_arr[[6, 7, 8]].std()]
-    stand_dev2 = [np_arr[[0, 3, 6]].std(), np_arr[[1, 4, 7]].std(), np_arr[[2, 5, 8]].std()]
-
+    stand_dev1 = np_arr.std(axis=0).tolist()
+    stand_dev2 = np_arr.std(axis=1).tolist() 
+    flat_stand_dev = np_arr.std()
+    
 #Calculate maximum
-    max1 = [np_arr[[0, 1, 2]].max(), np_arr[[3, 4, 5]].max(), np_arr[[6, 7, 8]].max()]
-    max2 = [np_arr[[0, 3, 6]].max(), np_arr[[1, 4, 7]].max(), np_arr[[2, 5, 8]].max()]
-
+    max1 = np_arr.max(axis=0).tolist()
+    max2 = np_arr.max(axis=1).tolist() 
+    flat_max = np_arr.max()
+    
 #Calculate minimum
-    min1 = [np_arr[[0, 1, 2]].min(), np_arr[[3, 4, 5]].min(), np_arr[[6, 7, 8]].min()]
-    min2 = [np_arr[[0, 3, 6]].min(), np_arr[[1, 4, 7]].min(), np_arr[[2, 5, 8]].min()]
+    min1 = np_arr.min(axis=0).tolist()
+    min2 = np_arr.min(axis=1).tolist() 
+    flat_min = np_arr.min()
 
 #Calcualte total
-    sum1 = [np_arr[[0, 1, 2]].sum(), np_arr[[3, 4, 5]].sum(), np_arr[[6, 7, 8]].sum()]
-    sum2 = [np_arr[[0, 3, 6]].sum(), np_arr[[1, 4, 7]].sum(), np_arr[[2, 5, 8]].sum()]
+    sum1 = np_arr.sum(axis=0).tolist()
+    sum2 = np_arr.sum(axis=1).tolist() 
+    flat_sum = np_arr.sum()
 
 
-    calculations = {'mean': [mean1.tolist(), mean2.tolist(), (np_arr.mean()).tolist()],
-                    'variance': [var1.tolist(), var2.tolist(), (np_arr.var()).tolist()],
-                    'standard deviation': [stand_dev1.tolist(), stand_dev2.tolist(), (np_arr.std()).tolist()],
-                    'max': [max1.tolist(), max2.tolist(), (np_arr.max()).tolist()],
-                    'min': [min1.tolist(), min2.tolist(), (np_arr.min()).tolist()],
-                    'sum': [sum1.tolist(), sum2.tolist(), (np_arr.sum()).tolist()]
+    calculations = {'mean': [mean1, mean2, flat_mean],
+                    'variance': [var1, var2, flat_var],
+                    'standard deviation': [stand_dev1, stand_dev2, flat_stand_dev],
+                    'max': [max1, max2, flat_max],
+                    'min': [min1, min2, flat_min],
+                    'sum': [sum1, sum2, flat_sum]
                    }
 
     return calculations
-
-print (calculate([0,1,2,3,4,5,6,7,8]))
