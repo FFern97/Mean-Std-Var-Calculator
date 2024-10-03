@@ -4,9 +4,7 @@ def calculate(list):
     if (len(list) != 9): 
         raise ValueError("List must contain nine numbers.")   
 
-
     ls= np.array(list)
-    print(ls)
 
 #Calculate mean
     mean1 = [ls[[0, 1, 2]].mean(), ls[[3, 4, 5]].mean(), ls[[6, 7, 8]].mean()]
