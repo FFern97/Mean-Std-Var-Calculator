@@ -1,9 +1,12 @@
 import numpy as np
 
 def calculate(list):
+    if (len(list) != 9): 
+        raise ValueError("List must contain nine numbers.")   
+
 
     ls= np.array(list)
-    
+    print(ls)
 
 #Calculate mean
     mean1 = [ls[[0, 1, 2]].mean(), ls[[3, 4, 5]].mean(), ls[[6, 7, 8]].mean()]
@@ -28,6 +31,7 @@ def calculate(list):
 #Calcualte total
     sum1 = [ls[[0, 1, 2]].sum(), ls[[3, 4, 5]].sum(), ls[[6, 7, 8]].sum()]
     sum2 = [ls[[0, 3, 6]].sum(), ls[[1, 4, 7]].sum(), ls[[2, 5, 8]].sum()]
+
 
     calculations = {'mean': [mean1, mean2, ls.mean()],
                     'variance': [var1, var2, ls.var()],
