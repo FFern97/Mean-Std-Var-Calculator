@@ -3,7 +3,7 @@ import numpy as np
 def calculate(list):
 
     ls= np.array(list)
-    print(ls)
+    
 
 #Calculate mean
     mean1 = [ls[[0, 1, 2]].mean(), ls[[3, 4, 5]].mean(), ls[[6, 7, 8]].mean()]
@@ -34,10 +34,10 @@ def calculate(list):
     return {
 
         'mean': [mean1, mean2, ls.mean()],
-        'variance': [axis1, axis2, flattened],
-        'standard deviation': [axis1, axis2, flattened],
-        'max': [axis1, axis2, flattened],
-        'min': [axis1, axis2, flattened],
-        'sum': [axis1, axis2, flattened]
+        'variance': [var1, var2, ls.var()],
+        'standard deviation': [stand_dev1, stand_dev2, ls.std()],
+        'max': [max1, max2, ls.max()],
+        'min': [min1, min2, ls.min()],
+        'sum': [sum1, sum2, ls.sum()]
 
     }
