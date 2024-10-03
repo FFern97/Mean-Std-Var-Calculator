@@ -9,7 +9,7 @@ def calculate(list):
         raise ValueError("List must contain nine numbers.")   
 
 #Convert list to 3x3 np array
-    np_arr = ls.reshape(3,3): 
+    np_arr = ls.reshape(3,3)
       
 #Calculate mean
     mean1 = np_arr.mean(axis=0).tolist()
